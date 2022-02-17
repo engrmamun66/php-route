@@ -79,7 +79,7 @@ class Router{
 
     public static function getMatched($pattern)
     {
-        $url = explode('?', self::requestURL())[0];        
+        $url = rtrim(explode('?', self::requestURL())[0], '/');
         if (preg_match($pattern, $url, $matches)) {
             return $matches;
         }
